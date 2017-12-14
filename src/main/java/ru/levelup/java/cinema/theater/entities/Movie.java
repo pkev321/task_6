@@ -85,4 +85,6 @@ public class Movie {
             sessions.add(session);
         }
     }
+
+    @Parameters
 }
