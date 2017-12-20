@@ -15,16 +15,25 @@ import java.util.List;
 public class MovieTest {
 
     private Movie movie;
-    private String title = "Заголовок";
-    private int duration = 120;
-    private String description = "test";
+    private static final String title = "Заголовок";
+    private static final int duration = 120;
+    private static final String description = "test";
+    private static final String hallName = "test";
+    private static final int hallSize = 120;
+    private static final double hallPrice = 120;
+    private static final String desc = "test test";
+    private static final String titleT = "test test";
+    private static final int durationT = 22;
+    private static final String patternString = "Наименование='" + title + '\'' +
+                                                ", Длительность=" + duration +
+                                                ", Описание='" + description + '\'';
     private List<Session> sessions;
 
     @Before
     public void setUp() throws Exception {
         movie = new Movie(title, duration, description);
         sessions = new ArrayList<Session>();
-        sessions.add(new Session(new Hall("2", 122), new Date(), 232.23));
+        sessions.add(new Session(new Hall(hallName, hallSize), new Date(), hallPrice));
     }
 
     @Test
@@ -44,7 +53,6 @@ public class MovieTest {
 
     @Test
     public void checkSetDescription() {
-        String desc = "test test";
         movie.setDescription(desc);
         Assert.assertTrue("Проверка задания описания", movie.getDescription().equals(desc));
         movie.setDescription(description);
@@ -52,7 +60,6 @@ public class MovieTest {
 
     @Test
     public void checkSetTitle() {
-        String titleT = "test test";
         movie.setTitle(titleT);
         Assert.assertTrue("Проверка задания имени", movie.getTitle().equals(titleT));
         movie.setDescription(title);
@@ -65,7 +72,6 @@ public class MovieTest {
 
     @Test
     public void checkSetDuration() {
-        int durationT = 22;
         movie.setDuration(durationT);
         Assert.assertTrue("Проверка задания имени", movie.getDuration() == durationT);
         movie.setDuration(duration);
@@ -73,7 +79,7 @@ public class MovieTest {
 
     @Test
     public void checkAddSession() {
-        Session session = new Session(new Hall("2", 122), new Date(), 232.23);
+        Session session = new Session(new Hall(hallName + "2", hallSize), new Date(), hallPrice);
         Ticket ticket = new Ticket(1);
         session.getTickets().add(ticket);
         int count = movie.getSessions().size();
@@ -97,6 +103,4 @@ public class MovieTest {
         Assert.assertTrue("Проверка преобразования в текстовую строку", out.contains(patternString));
 
     }
-
-    @Pa
 }

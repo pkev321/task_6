@@ -13,16 +13,15 @@ import java.util.ArrayList;
 public class ClientTest {
 
     private Client client;
-    private String name = "TEST";
+    private final static String name = "TEST";
+    private final static String testName = "test";
+    private final static int[] number = {1, 2, 3, 4, 5, 6};
     ArrayList<Ticket> tickets = new ArrayList<>();
 
     @Before
     public void init () {
-        tickets.add(new Ticket(1));
-        tickets.add(new Ticket(2));
-        tickets.add(new Ticket(3));
-        tickets.add(new Ticket(4));
-        tickets.add(new Ticket(5));
+        for (int i = 0; i < number.length; i++)
+            tickets.add(new Ticket(number[i]));
 
         client = new Client(name, tickets);
     }
@@ -45,7 +44,6 @@ public class ClientTest {
 
     @Test
     public void checkSetName() {
-        String testName = "test";
         client.setName(testName);
         checkEqualsNames(testName);
         client.setName(name);
