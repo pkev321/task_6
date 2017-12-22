@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Класс описывающий кино
+ * Клас тестирующий класс Movie
  */
 
 public class MovieTest {
@@ -97,9 +97,6 @@ public class MovieTest {
     @Test
     public void checkToString() {
         String out = movie.toString();
-        String patternString = "Наименование='" + title + '\'' +
-                ", Длительность=" + duration +
-                ", Описание='" + description + '\'';
         Assert.assertTrue("Проверка преобразования в текстовую строку", out.contains(patternString));
 
     }

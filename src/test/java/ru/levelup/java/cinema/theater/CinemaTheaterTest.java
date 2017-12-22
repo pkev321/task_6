@@ -1,6 +1,6 @@
 package ru.levelup.java.cinema.theater;
 
-//import javafx.application.Application;
+
 import org.junit.Before;
 import ru.levelup.java.cinema.theater.entities.*;
 
@@ -19,13 +19,14 @@ import java.util.*;
  *  Класс описывает работу терминала продаж в кинозале
  */
 public class CinemaTheaterTest {
-/*
+
     private CinemaTheater cinemaTheater;
 
     @Before
-    public void init() {
+    public void setUp() throws Exception {
         cinemaTheater = new CinemaTheater();
 
     }
-*/
+
+
 }
